@@ -12,7 +12,7 @@ import java.time.Instant;
 import java.util.stream.Stream;
 
 class PrioritySortTest {
-    PrioritySort prioritySort = PrioritySort.newInstance();
+    PrioritySort prioritySort = PrioritySort.newInstance(null, null);
 
     @ParameterizedTest
     @MethodSource("podInfoProvider")

@@ -1,6 +1,7 @@
 package com.lgypro.j8s.framework.plugins.queuesort;
 
 import com.lgypro.j8s.componenthelpers.scheduling.corev1.Helpers;
+import com.lgypro.j8s.framework.Handle;
 import com.lgypro.j8s.framework.QueueSortPlugin;
 import com.lgypro.j8s.framework.QueuedPodInfo;
 import com.lgypro.j8s.framework.plugins.names.Names;
@@ -21,7 +22,7 @@ public class PrioritySort implements QueueSortPlugin {
         return name;
     }
 
-    public static PrioritySort newInstance() {
+    public static PrioritySort newInstance(Object object, Handle handle) {
         return new PrioritySort();
     }
 }

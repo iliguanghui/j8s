@@ -8,5 +8,4 @@ class J8sApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }

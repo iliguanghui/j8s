@@ -15,6 +15,28 @@ public class Pod {
     @Setter
     PodStatus status;
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+        Pod pod = new Pod();
+
+        public Pod build() {
+            return pod;
+        }
+
+        public Builder setSpec(PodSpec spec) {
+            pod.setSpec(spec);
+            return this;
+        }
+
+        public Builder setNodeName(String nodeName) {
+            pod.getSpec().setNodeName(nodeName);
+            return this;
+        }
+    }
+
     public Pod() {
         spec = new PodSpec();
     }
