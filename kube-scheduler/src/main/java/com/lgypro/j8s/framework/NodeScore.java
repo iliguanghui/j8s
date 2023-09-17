@@ -13,4 +13,27 @@ public class NodeScore {
         this.name = name;
         this.score = score;
     }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+        NodeScore nodeScore = new NodeScore(null, 0);
+
+        public NodeScore build() {
+            return nodeScore;
+        }
+
+        public Builder setName(String name) {
+            nodeScore.setName(name);
+            return this;
+        }
+
+        public Builder setScore(int score) {
+            nodeScore.setScore(score);
+            return this;
+        }
+
+    }
 }

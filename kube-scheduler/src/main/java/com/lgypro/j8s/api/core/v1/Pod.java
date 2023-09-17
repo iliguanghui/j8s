@@ -5,6 +5,8 @@ import com.lgypro.j8s.apis.meta.v1.TypeMeta;
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter
+@Setter
 public class Pod {
     TypeMeta typeMeta;
     ObjectMeta objectMeta;
@@ -35,9 +37,24 @@ public class Pod {
             pod.getSpec().setNodeName(nodeName);
             return this;
         }
+
+        public Builder setObjectMeta(ObjectMeta objectMeta) {
+            pod.objectMeta = objectMeta;
+            return this;
+        }
     }
 
     public Pod() {
         spec = new PodSpec();
+    }
+
+    public boolean hasAffinity() {
+        Affinity affinity = spec.getAffinity();
+        return affinity != null && (affinity.getPodAffinity() != null || affinity.getPodAntiAffinity() != null);
+    }
+
+    public boolean hasRequiredAntiAffinity() {
+        Affinity affinity = spec.getAffinity();
+        return affinity != null && affinity.getPodAntiAffinity() != null && affinity.getPodAntiAffinity().getRequiredDuringSchedulingIgnoredDuringExecution() != null;
     }
 }

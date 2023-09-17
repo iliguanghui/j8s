@@ -21,6 +21,10 @@ public class PodSpec {
     List<Container> containers;
     String nodeName;
 
+    List<Toleration> tolerations;
+
+    Affinity affinity;
+
     public static Builder builder() {
         return new Builder();
     }
@@ -34,6 +38,11 @@ public class PodSpec {
 
         public Builder setContainers(List<Container> containers) {
             podSpec.setContainers(containers);
+            return this;
+        }
+
+        public Builder setTolerations(List<Toleration> tolerations) {
+            podSpec.setTolerations(tolerations);
             return this;
         }
     }

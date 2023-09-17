@@ -43,5 +43,15 @@ public class Node {
             node.objectMeta.setName(name);
             return this;
         }
+
+        public Builder setObjectMeta(ObjectMeta objectMeta) {
+            node.objectMeta = objectMeta;
+            return this;
+        }
+
+        public Builder setNodeSpec(NodeSpec spec) {
+            node.spec = spec;
+            return this;
+        }
     }
 }

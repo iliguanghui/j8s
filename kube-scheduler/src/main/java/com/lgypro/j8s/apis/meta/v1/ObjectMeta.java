@@ -18,7 +18,7 @@ public class ObjectMeta {
      * automatically. Name is primarily intended for creation idempotence and configuration
      * definition.
      * Cannot be updated.
-     * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names
+     * More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names">...</a>
      * +optional
      */
     String name;
@@ -30,7 +30,7 @@ public class ObjectMeta {
      * <p>
      * Must be a DNS_LABEL.
      * Cannot be updated.
-     * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces
+     * More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces">...</a>
      * +optional
      */
     String namespace;
@@ -39,7 +39,7 @@ public class ObjectMeta {
      * Map of string keys and values that can be used to organize and categorize
      * (scope and select) objects. May match selectors of replication controllers
      * and services.
-     * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
+     * More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels">...</a>
      * +optional
      */
     Map<String, String> labels;
@@ -48,9 +48,40 @@ public class ObjectMeta {
      * Annotations is an unstructured key value map stored with a resource that may be
      * set by external tools to store and retrieve arbitrary metadata. They are not
      * queryable and should be preserved when modifying objects.
-     * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations
+     * More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations">...</a>
      * +optional
      */
     Map<String, String> annotations;
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+        ObjectMeta objectMeta = new ObjectMeta();
+
+        public Builder setName(String name) {
+            objectMeta.setName(name);
+            return this;
+        }
+
+        public Builder setNamespace(String namespace) {
+            objectMeta.setNamespace(namespace);
+            return this;
+        }
+
+        public Builder setLabels(Map<String, String> labels) {
+            objectMeta.setLabels(labels);
+            return this;
+        }
+
+        public Builder setAnnotations(Map<String, String> annotations) {
+            objectMeta.setAnnotations(annotations);
+            return this;
+        }
+
+        public ObjectMeta build() {
+            return objectMeta;
+        }
+    }
 }
